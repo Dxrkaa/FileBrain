@@ -1,0 +1,28 @@
+# FileBrain — Windows NSIS Installer
+# Output: release/FileBrain Setup 1.0.0.exe
+# Run:    npm run dist:win:setup
+
+appId: com.filebrain.app
+productName: FileBrain
+
+directories:
+  output: release
+
+files:
+  - out/**/*
+  - node_modules/**/*
+  - package.json
+
+win:
+  artifactName: "${productName} Setup ${version}.${ext}"
+  target:
+    - target: nsis
+      arch: [x64]
+
+nsis:
+  oneClick: false
+  allowElevation: false
+  allowToChangeInstallationDirectory: false
+  runAfterFinish: true
+  deleteAppDataOnUninstall: false
+  include: build/installer.nsh

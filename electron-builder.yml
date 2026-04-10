@@ -1,0 +1,42 @@
+appId: com.filebrain.app
+productName: FileBrain
+copyright: Copyright © 2025 FileBrain
+
+directories:
+  buildResources: resources
+  output: release
+
+files:
+  - out/**/*
+  - "!**/*.map"
+  - "!**/*.d.ts"
+
+extraResources:
+  - from: resources/
+    to: resources/
+
+win:
+  target:
+    - nsis
+  icon: resources/icon.ico
+
+nsis:
+  oneClick: false
+  allowToChangeInstallationDirectory: true
+  createDesktopShortcut: true
+  createStartMenuShortcut: true
+
+mac:
+  target:
+    - dmg
+  icon: resources/icon.icns
+  category: public.app-category.productivity
+
+linux:
+  target:
+    - AppImage
+  icon: resources/icon.png
+  category: Office
+
+asar: true
+compression: maximum

@@ -1,0 +1,24 @@
+# FileBrain — Portable ZIP (no install needed)
+# Output: release/FileBrain-Portable-1.0.0-win.zip
+# Run:    npm run dist:win:portable
+#
+# Unzip anywhere and double-click FileBrain.exe.
+# On first launch, Ollama + AI models are installed automatically.
+
+appId: com.filebrain.app
+productName: FileBrain
+
+directories:
+  output: release
+
+files:
+  - out/**/*
+  - node_modules/**/*
+  - package.json
+
+win:
+  target:
+    - target: zip
+      arch: [x64]
+
+artifactName: "FileBrain-Portable-${version}-win.zip"
